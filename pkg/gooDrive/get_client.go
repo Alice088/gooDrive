@@ -11,7 +11,7 @@ func (drive *GooDrive) getClient(config *oauth2.Config) {
 	tok, err := drive.tokenFromFile(tokFile)
 	if err != nil {
 		tok = drive.getTokenFromWeb(config)
-		drive.saveToken(tok)
+		drive.saveToken(tokFile, tok)
 	}
 	drive.Client = config.Client(context.Background(), tok)
 }

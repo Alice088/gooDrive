@@ -7,8 +7,8 @@ import (
 )
 
 // Request a token from the web, then returns the retrieved token.
-func (drive *GooDrive) tokenFromFile() (*oauth2.Token, error) {
-	f, err := os.Open(drive.tokenPath)
+func (drive *GooDrive) tokenFromFile(file string) (*oauth2.Token, error) {
+	f, err := os.Open(file)
 	if err != nil {
 		return nil, err
 	}

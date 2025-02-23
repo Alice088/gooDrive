@@ -36,7 +36,7 @@ func NewGooDrive(tokenPath string) *GooDrive {
 	}
 
 	// If modifying these scopes, delete your previously saved token.json.
-	config, err := google.ConfigFromJSON(b, drive.DriveMetadataReadonlyScope)
+	config, err := google.ConfigFromJSON(b, drive.DriveScope)
 	if err != nil {
 		log.Fatalf("Unable to parse client secret file to config: %v", err)
 	}

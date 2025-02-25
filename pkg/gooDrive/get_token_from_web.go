@@ -16,12 +16,12 @@ func (drive *GooDrive) getTokenFromWeb(config *oauth2.Config) *oauth2.Token {
 		"authorization code: \n%v\n", authURL)
 
 	if _, err := fmt.Scan(&authCode); err != nil {
-		log.Fatalf("Unable to read authorization code %v", err)
+		log.Fatalf("unable to read authorization code %v", err)
 	}
 
 	tok, err := config.Exchange(context.TODO(), authCode)
 	if err != nil {
-		log.Fatalf("Unable to retrieve token from web %v", err)
+		log.Fatalf("unable to retrieve token from web %v", err)
 	}
 	return tok
 }

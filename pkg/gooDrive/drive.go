@@ -21,7 +21,7 @@ type IGooDrive interface {
 	DownloadFile(fileId string, filePath FilePath) (FilePath, error)
 	Client() *http.Client
 	Service() *drive.Service
-	getClient(config *oauth2.Config)
+	getClient(config *oauth2.Config, tokensSavePath string)
 	getTokenFromWeb(config *oauth2.Config) *oauth2.Token
 	tokenFromFile(file string) (*oauth2.Token, error)
 }
@@ -31,7 +31,7 @@ NewGooDrive
 
 tokenPath - This is the path to the file token and the path where the file token will be saved if it is not found
 */
-func NewGooDrive(tokenPath string) IGooDrive {
+func NewGooDrive(tokenPath string, tokensSavePath string) IGooDrive {
 	ctx := context.Background()
 	b, err := os.ReadFile(tokenPath)
 	if err != nil {
@@ -48,7 +48,7 @@ func NewGooDrive(tokenPath string) IGooDrive {
 		tokenPath: tokenPath,
 	}
 
-	gooDrive.getClient(config)
+	gooDrive.getClient(config, tokensSavePath)
 
 	gooDrive.service, err = drive.NewService(ctx, option.WithHTTPClient(gooDrive.client))
 	if err != nil {

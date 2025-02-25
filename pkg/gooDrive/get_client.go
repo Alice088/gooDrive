@@ -6,8 +6,8 @@ import (
 )
 
 // GetClient Retrieve a token, saves the token, then returns the generated client.
-func (drive *GooDrive) getClient(config *oauth2.Config) {
-	tokFile := "../../configs/token.json"
+func (drive *GooDrive) getClient(config *oauth2.Config, tokensSavePath string) {
+	tokFile := tokensSavePath
 	tok, err := drive.tokenFromFile(tokFile)
 	if err != nil {
 		tok = drive.getTokenFromWeb(config)

@@ -14,4 +14,10 @@ func TestUploadFile(b *testing.T) {
 	}
 
 	b.Log(fId)
+
+	err = drive.Service().Files.Delete(fId).Do()
+
+	if err != nil {
+		b.Logf("Error deleting file: %s \n: %v", fId, err)
+	}
 }

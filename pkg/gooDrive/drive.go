@@ -19,6 +19,7 @@ type GooDrive struct {
 
 type IGooDrive interface {
 	DownloadFile(fileId string, filePath FilePath) (FilePath, error)
+	UploadFile(filePath string) (FileId, error)
 	Client() *http.Client
 	Service() *drive.Service
 	getClient(config *oauth2.Config, tokensSavePath string)

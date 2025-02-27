@@ -19,5 +19,5 @@ func TestUploadFile(b *testing.T) {
 
 	if err != nil {
 		b.Logf("Error deleting file: %s \n: %v", fId, err)
-	} //
+	} // /
 }

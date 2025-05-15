@@ -1,8 +1,8 @@
-This is the tiny library for easy work with Google Drive golang SDK
+# This is the tiny library for easy work with Google Drive golang SDK
 
-see https://developers.google.com/drive/api/quickstart/go and get json token file
-
-Next use ``NewGooDrive`` and put in path to the json token file
+#### 1. see https://developers.google.com/drive/api/quickstart/g
+#### 2. Get credits.json from quickstart
+#### 3. Use ``NewGooDriveJSON`` or ``NewGooDriveENV`` (if you don't want extra files) 
 
 
 

@@ -2,4 +2,6 @@
 token.json
 credits.json
 go.sum
-рhoto_1.jpg
+*.jpg
+main.go
+.env

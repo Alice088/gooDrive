@@ -6,7 +6,7 @@ import (
 )
 
 func TestUploadFile(b *testing.T) {
-	drive := gooDrive.NewGooDrive("../credits.json", "../token.json")
+	drive := gooDrive.NewGooDriveJSON("../credits.json", "../token.json")
 	fId, err := drive.UploadFile("../internal/photo_1.jpg")
 
 	if err != nil {

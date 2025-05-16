@@ -1,14 +1,16 @@
 package tests
 
 import (
+	"github.com/Alice088/gooDrive/pkg/env"
 	"github.com/Alice088/gooDrive/pkg/gooDrive"
 	"os"
 	"testing"
 )
 
 func TestDownloadFile(b *testing.T) {
+	env.Init()
 	filePath := "./test_photo.png"
-	drive := gooDrive.NewGooDrive("../credits.json", "../token.json")
+	drive := gooDrive.NewGooDriveENV("TOKEN", "../token.json")
 	_, err := drive.DownloadFile("1CijSxpbBt-QeMdFh8JILAx12GOYtCiCT", filePath)
 
 	if err != nil {

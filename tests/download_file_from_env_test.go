@@ -10,9 +10,9 @@ import (
 func TestDownloadFileFromEnv(b *testing.T) {
 	env.Init()
 
-	filePath := "./test_photo.png"
+	filePath := "./session"
 	drive := gooDrive.NewGooDriveENV("TOKEN", "../token.json")
-	_, err := drive.DownloadFile("1CijSxpbBt-QeMdFh8JILAx12GOYtCiCT", filePath)
+	_, err := drive.DownloadFolder("1DR2h7NtrRaWcCGdKR9DkOhp1CYmlOpLn", filePath)
 
 	if err != nil {
 		b.Fatal(err)
@@ -24,7 +24,7 @@ func TestDownloadFileFromEnv(b *testing.T) {
 		b.Fatal(err)
 	}
 
-	err = os.Remove(filePath)
+	err = os.RemoveAll(filePath)
 
 	if err != nil {
 		b.Fatal(err)
